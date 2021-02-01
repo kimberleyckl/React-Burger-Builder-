@@ -33,9 +33,7 @@ class BurgerBuilder extends Component {
 
 	componentDidMount() {
 		axios
-			.get(
-				"https://react-burger-kimikikiwi-default-rtdb.firebaseio.com/orders/-MRJmD4XyBkVacDi1QJ1/ingredient.json"
-			)
+			.get("https://react-burger-kimikikiwi-default-rtdb.firebaseio.com/ingredients.json")
 			.then((res) => {
 				this.setState({ ingredients: res.data });
 			})
@@ -104,36 +102,14 @@ class BurgerBuilder extends Component {
 		// alert('you continue')
 
 		// post to server
-		// this.setState({loading: true});
-		// const order = {
-		//     ingredient: this.state.ingredients,
-		//     price: this.state.totalPrice,           // in real world, for security issue, should calculate the price from server!
-		//     customer:{
-		//         name: 'Kimi',
-		//         address: {
-		//             street: 'Teststreet 1',
-		//             zipcode: "12345",
-		//             country: "NZ"
-		//         } ,
-		//         email: "test@test.com"
-		//     },
-		//     deliveryMethod: "fastest"
-		// }
-		// axios.post("/orders.json", order)
-		//     .then(res =>
-		//         this.setState({loading: false, purchasing: false}))
-		//     .catch(err =>
-		//         this.setState({loading: false, purchasing: false}));
 
 		// console.log(this.props);
 		const queryParam = [];
 		for (let i in this.state.ingredients) {
-			queryParam.push(
-				encodeURIComponent(i) +
-					"=" +
-					encodeURIComponent(this.state.ingredients[i])
-			);
+			queryParam.push(encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i]));
 		}
+
+		queryParam.push("price=" + this.state.totalPrice);
 
 		const queryString = queryParam.join("&");
 		this.props.history.push({
@@ -153,11 +129,7 @@ class BurgerBuilder extends Component {
 
 		let orderSum = null;
 
-		let burger = this.state.error ? (
-			<p>ingredient can't be loaded</p>
-		) : (
-			<Spinner />
-		);
+		let burger = this.state.error ? <p>ingredient can't be loaded</p> : <Spinner />;
 		if (this.state.ingredients) {
 			burger = (
 				<Aux>
@@ -187,10 +159,7 @@ class BurgerBuilder extends Component {
 
 		return (
 			<Aux>
-				<Modal
-					show={this.state.purchasing}
-					modalClosed={this.purchaseCancelHandler}
-				>
+				<Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
 					{orderSum}
 				</Modal>
 				{burger}
