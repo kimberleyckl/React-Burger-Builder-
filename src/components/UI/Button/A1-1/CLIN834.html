@@ -1,0 +1,112 @@
+<!-- Chien-Li LIN, 955333969, clin834 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dunedin Dairy</title>
+    <link href="CLIN834.css" rel="stylesheet" style='text/css'>
+    <script defer='true' src="CLIN8342.js"></script>
+</head>
+
+<body onload = ini()>
+    <!-- menu bar -->
+    <div id='menubar'>
+    <table width='100%'>
+        <tr>           
+            <td id ="logo" ><img src = 'http://redsox.uoa.auckland.ac.nz/ds/logo-192x192.png'
+                alt="Dunedin Dairy Logo" width = "80vh" onclick="homeclicked()"/></td>
+            <td id="home_tab" onclick="homeclicked()">&#x1F3E0;</td>
+            <td id="Products_tab" onclick="productclicked()">&#x1f6d2;</td>
+            <td id="Location_tab" onclick="locationclicked()">&#x1F4CC;</td>
+            <td id="News_tab" onclick="newsclicked()">&#x1f4f0;</td>
+            <td id="Guest_tab" onclick="guestclicked()">&#x1F4D6;</td>
+            <td id="Sign_tab" onclick="signclicked()">&#x1F9B1;</td>
+        </tr>
+        <hr style="font-size: 20px;"/>
+    </table>
+    </div>
+    <hr/>
+    <hr/>
+
+
+
+    <!-- HOME -->
+    <div id="home_menu">
+        <h1>Dunedin Dairy</h1>
+        <hr width ='70%'/>
+        <p class='descriptions'>Welcome to Dunedin Dairy, the leading online dairy shop in New Zealand. We take pride in sourcing the best
+            dairy products from within NZ and abroad. Our shop is open 24/7. and we strive to deliver your purchases promptly.
+        </p>
+        <p class='descriptions'>Contactless shipping available.</p>
+        <img src='https://d1poczgreawftx.cloudfront.net/7/w23114_kiddhannah_kiddh23114sacredcow%282019%2901.jpg?i=90716' width = 70%>
+
+        <p class = 'dates'>Hannah Kidd sacred cow (2019) Milford galleries dunedin</p>
+        <hr  width = 50% >
+        <p>All right reserved</p>
+  
+        
+    </div>
+
+    <!-- Product -->
+    <div id = "Products_menu">
+        <h1>Products</h1>
+        <hr width ='70%'/>
+        <div>
+            <input type="text" id='searched' placeholder="Search Products" size = '50%' oninput="searchFunc()"> 
+            <div></div>
+            <br/><br/>
+        </div>
+        <div id = "productOutput"></div>
+    </div>
+
+    <!-- Location -->
+    <div id="Location_menu">
+        <h1>Location</h1>
+        <hr width ='70%'/>
+        <img src="http://redsox.uoa.auckland.ac.nz/ds/map.png" 
+            alt="Dunedin Dairy Location" 
+            width="90%"
+            />
+        <div id='contacts'></div>
+
+    </div>
+
+    <!-- News -->
+    <div id = "News_menu">
+        <h1>News</h1>
+        <hr width ='70%'/>
+        <div id = "newsOutput"></div>
+
+    </div>
+
+    <!-- guestbook -->
+    <div id = "Guest_menu">
+        <h1>Guest book</h1>
+        <hr width ='70%'/>
+        <form>
+            <textarea id = 'comments'></textarea>
+        </form>
+        <input type="text" id='users' placeholder="Enter your name" size = '50%' > 
+        <button onclick = 'commented()'>SEND</button>
+        <div id = 'commentsOutput'></div>        
+    </div>
+
+    <!-- sign in  -->
+    <div id = "sign_menu">
+        <h1>Sign Up/ Sign in</h1>
+        <hr width ='70%'/>
+        <div id = "registerOutput">
+            <div class='titles'>Username</div>
+            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>          
+            <div class='titles'>Password</div>
+            <input type="password" placeholder="Enter Password" name="psw" id="pwd" required>                    
+            <button type="submit" onclick = "register()">Sign-up</button>
+            <button onclick = "sign_in_clicked">Sign-in instead</button>            
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+

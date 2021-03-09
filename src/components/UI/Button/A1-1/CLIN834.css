@@ -1,0 +1,173 @@
+/* Chien-Li LIN, 955333969, clin834 */
+body{
+    background-color: #99ccff;
+}
+
+table{
+    text-align: center;
+    /* font-size: 40px; */
+
+}
+
+td{
+    /* width:20px; */
+    cursor: pointer;
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+} 
+
+input{
+    font-size: 20px;
+}
+
+h1{
+    font-size: 45px;
+    margin: 50px 0 3px 0;
+}
+
+hr{
+    border: 2px solid #000;
+    /* margin: 0px; */
+}
+
+img{
+    border: 5px solid black;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 20px antiquewhite;
+    cursor: pointer;
+    width: 90%;
+    font-size: 30px;
+    border-radius: 25px;
+  }
+  
+button:hover {
+    opacity: 0.8;
+  }
+
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+
+
+.titles{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.descriptions{
+    font-size: 20px;
+}
+
+.dates{
+    font-size: 15px;
+}
+
+#buy_button{
+    background-color: rgb(117, 167, 42);
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 20px antiquewhite;
+    cursor: pointer;
+    width: 10vh;
+    font-size: 25px;
+    border-radius: 25px;
+    
+}
+
+#home_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#Products_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#Location_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#News_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#Guest_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#Sign_tab{
+    font-size: xxx-large;
+    padding: 0;
+}
+#menubars{
+    font-size: xx-large;
+}
+
+#productimg{
+    display: inline-block ;
+
+    width: 20%
+}
+
+#comments{
+    border-radius: 25px;
+}
+
+
+#home_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+    
+}
+
+#Products_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+}
+
+#Location_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+}
+
+#News_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+}
+
+#Guest_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+}
+
+#sign_menu{
+    background-color: antiquewhite;
+    height: 100%;
+    text-align: center;
+}
