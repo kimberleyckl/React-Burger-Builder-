@@ -1,14 +1,10 @@
-import { nativeTouchData } from "react-dom/test-utils";
-import * as actionTypes from "./actions";
+// import { nativeTouchData } from "react-dom/test-utils";
+import * as actionTypes from "../actions/actionTypes";
 
 const initial_state = {
-	ingredients: {
-		salad: 0,
-		bacon: 0,
-		cheese: 0,
-		meat: 0,
-	},
+	ingredients: null,
 	totalPrice: 4,
+	error: false,
 };
 
 const INGREDIENT_PRICE = {
@@ -40,6 +36,24 @@ const reducer = (state = initial_state, action) => {
 				totalPrice: state.totalPrice - INGREDIENT_PRICE[action.ingredientName],
 				//something
 			};
+		case actionTypes.SET_INGREDIENTS:
+			return {
+				...state,
+				// ingredients: action.ingredients,         // this is more flexible but the position of ingredients not what we want!
+				ingredients: {
+					salad: action.ingredients.salad,
+					bacon: action.ingredients.bacon,
+					cheese: action.ingredients.cheese,
+					meat: action.ingredients.meat,
+				},
+				error: false,
+			};
+		case actionTypes.FETCH_INGREDIENTS_FAILED:
+			return {
+				...state,
+				error: true,
+			};
+
 		default:
 			return state;
 	}

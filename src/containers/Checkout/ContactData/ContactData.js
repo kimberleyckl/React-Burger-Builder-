@@ -5,6 +5,8 @@ import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
+import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
+import * as actions from "../../../store/actions/index";
 
 class ContactData extends Component {
 	state = {
@@ -90,12 +92,10 @@ class ContactData extends Component {
 			},
 		},
 		formIsValid: false,
-		loading: false,
 	};
 
 	orderHandler = (event) => {
 		event.preventDefault(); //to prevent refresh when we clicked order
-		this.setState({ loading: true });
 		const formData = {};
 		for (let formElementIdentifier in this.state.orderForm) {
 			formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
@@ -105,13 +105,7 @@ class ContactData extends Component {
 			price: this.props.price, // in real world, for security issue, should calculate the price from server!
 			orderData: formData,
 		};
-		axios
-			.post("/orders.json", order)
-			.then((res) => {
-				this.setState({ loading: false });
-				this.props.history.push("/");
-			})
-			.catch((err) => this.setState({ loading: false }));
+		this.props.onOrderBurger(order);
 	};
 
 	///set rules here
@@ -176,7 +170,7 @@ class ContactData extends Component {
 				{/* <Button btnType='Danger' >CANCEL</Button> */}
 			</form>
 		);
-		if (this.state.loading) {
+		if (this.props.loading) {
 			form = <Spinner />;
 		}
 		return (
@@ -192,7 +186,13 @@ const mapStateToProps = (state) => {
 	return {
 		ingredients: state.ingredients,
 		price: state.totalPrice,
+		loading: state.loading,
 	};
 };
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData)),
+	};
+};
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));
